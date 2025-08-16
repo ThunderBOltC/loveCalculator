@@ -21,7 +21,7 @@ class MainActivity : AppCompatActivity() {
 
             // Generate random percentage between 50 and 100 (for fun)
             val score = Random.nextInt(50, 101)
-
+//hello
             Toast.makeText(
                 this,
                 "$name ❤️ $partnerName\nScore: $score%",
