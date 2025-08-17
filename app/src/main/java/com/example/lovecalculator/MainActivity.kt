@@ -14,19 +14,33 @@ class MainActivity : AppCompatActivity() {
         val nameEditText = findViewById<EditText>(R.id.editTextName)
         val partnerEditText = findViewById<EditText>(R.id.editPartnerName)
         val submitButton = findViewById<Button>(R.id.buttonSubmit)
+        fun hideKeyboard() {
+            val view = this.currentFocus
+            if (view != null) {
+                val imm = getSystemService(INPUT_METHOD_SERVICE) as android.view.inputmethod.InputMethodManager
+                imm.hideSoftInputFromWindow(view.windowToken, 0)
+            }
+        }
 
         submitButton.setOnClickListener {
-            val name = nameEditText.text.toString()
-            val partnerName = partnerEditText.text.toString()
+            val nae = nameEditText.text.toString()
+            val pn = partnerEditText.text.toString()
+
+            val name = nae.split(" ")[0]
+            val partnerName = pn.split(" ")[0]
 
             // Generate random percentage between 50 and 100 (for fun)
             val score = Random.nextInt(50, 101)
 //hello
-            Toast.makeText(
+            hideKeyboard()
+            val toast = Toast.makeText(
                 this,
                 "$name ❤️ $partnerName\nScore: $score%",
                 Toast.LENGTH_LONG
-            ).show()
+            )
+            toast.setGravity(android.view.Gravity.CENTER, 0, 0) // Center of screen
+            toast.show()
+
         }
     }
 }
