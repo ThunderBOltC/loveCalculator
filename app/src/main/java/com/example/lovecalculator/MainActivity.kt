@@ -35,7 +35,7 @@ class MainActivity : AppCompatActivity() {
             hideKeyboard()
             val toast = Toast.makeText(
                 this,
-                "$name ❤️ $partnerName\nScore: $score%",
+                "$name & $partnerName\nScore: $score%",
                 Toast.LENGTH_LONG
             )
             toast.setGravity(android.view.Gravity.CENTER, 0, 0) // Center of screen
